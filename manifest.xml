@@ -4,7 +4,7 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
 
-  <Id>Outlook Reply-All Warning</Id>
+  <Id>69f83a4d-4c75-4d97-8efb-99583810e274</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>TechSavy.Pro</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
