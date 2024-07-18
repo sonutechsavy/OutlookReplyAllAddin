@@ -4,7 +4,7 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="MailApp">
   
-  <Id>{69f83a4d-4c75-4d97-8efb-99583810e274}</Id>
+  <Id>951b5362-7568-41f3-8592-40fe0e8553a4</Id>
   <Version>1.0</Version>
   <ProviderName>TechSavyPro</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
