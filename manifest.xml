@@ -1,24 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
-           xsi:type="MailApp">
-
-  <Id>69f83a4d-4c75-4d97-8efb-99583810e274</Id>
-  <Version>1.0.0.0</Version>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="MailApp">
+  
+  <Id>{69f83a4d-4c75-4d97-8efb-99583810e274}</Id>
+  <Version>1.0</Version>
   <ProviderName>TechSavyPro</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Reply All Warning"/>
   <Description DefaultValue="Warns users when they reply to all"/>
+  <IconUrl DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon80.png"/>
+  <HighResolutionIconUrl DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon80.png"/>
   <SupportUrl DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/support.html"/>
-
+  
+  <AppDomains>
+    <AppDomain>https://sonutechsavy.github.io</AppDomain>
+  </AppDomains>
+  
   <Hosts>
     <Host Name="Mailbox"/>
   </Hosts>
 
   <Requirements>
     <Sets DefaultMinVersion="1.1">
-      <Set Name="Mailbox"/>
+      <Set Name="Mailbox" />
     </Sets>
   </Requirements>
 
@@ -28,61 +34,72 @@
         <SourceLocation DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/function-file.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
-      <TabletSettings>
-        <SourceLocation DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/function-file.html"/>
-        <RequestedHeight>250</RequestedHeight>
-      </TabletSettings>
-      <PhoneSettings>
-        <SourceLocation DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/function-file.html"/>
-      </PhoneSettings>
     </Form>
   </FormSettings>
+  
+  <Permissions>ReadWriteMailbox</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
 
-  <ExtensionPoints>
-    <MessageReadCommandSurface>
-      <ExtensionPoint>
-        <OfficeTab id="TabDefault">
-          <Group id="msgReadGroup">
-            <Label resid="groupLabel"/>
-            <Control xsi:type="Button" id="msgReadButton">
-              <Label resid="buttonLabel"/>
-              <Supertip>
-                <Title resid="buttonTitle"/>
-                <Description resid="buttonDescription"/>
-              </Supertip>
-              <Icon>
-                <bt:Image size="16" resid="icon16"/>
-                <bt:Image size="32" resid="icon32"/>
-                <bt:Image size="80" resid="icon80"/>
-              </Icon>
-              <Action xsi:type="ExecuteFunction">
-                <FunctionName>warnReplyAll</FunctionName>
-              </Action>
-            </Control>
-          </Group>
-        </OfficeTab>
-      </ExtensionPoint>
-    </MessageReadCommandSurface>
-  </ExtensionPoints>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Description resid="residAppDesc" />
 
-  <Resources>
-    <bt:Images>
-      <bt:Image id="icon16" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon16.png"/>
-      <bt:Image id="icon32" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon32.png"/>
-      <bt:Image id="icon80" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon80.png"/>
-    </bt:Images>
-    <bt:Urls>
-      <bt:Url id="functionFile" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/function-file.html"/>
-    </bt:Urls>
-  </Resources>
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.10">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
 
-  <VersionOverrides V1_0="http://schemas.microsoft.com/office/mailappversionoverrides/1.0">
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-          <FunctionFile resid="functionFile"/>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgReadGroup">
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="msgReadButton">
+                    <Label resid="buttonLabel"/>
+                    <Supertip>
+                      <Title resid="buttonTitle"/>
+                      <Description resid="buttonDescription"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="icon16"/>
+                      <bt:Image size="32" resid="icon32"/>
+                      <bt:Image size="80" resid="icon80"/>
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>warnReplyAll</FunctionName>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="icon16" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon16.png"></bt:Image>
+          <bt:Image id="icon32" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon32.png"></bt:Image>
+          <bt:Image id="icon80" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/icon80.png"></bt:Image>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="functionFile" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/function-file.html"></bt:Url>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="groupLabel" DefaultValue="Reply All Warning Group"></bt:String>
+          <bt:String id="buttonLabel" DefaultValue="Warn Reply All"></bt:String>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="residAppDesc" DefaultValue="Warns users when they reply to all"></bt:String>
+          <bt:String id="buttonTitle" DefaultValue="Warn Reply All"></bt:String>
+          <bt:String id="buttonDescription" DefaultValue="Warns users when they reply to all recipients."></bt:String>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
