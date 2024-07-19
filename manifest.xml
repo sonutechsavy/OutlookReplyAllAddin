@@ -6,11 +6,11 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="ReplyAllWarningAddin"/>
   <Description DefaultValue="Warning user when replying to all with more than 10 recipents"/>
-  <IconUrl DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon-64.png"/>
-  <HighResolutionIconUrl DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon-128.png"/>
+  <IconUrl DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon80.png"/>
+  <HighResolutionIconUrl DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon80.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
   <AppDomains>
-    <AppDomain>https://www.contoso.com</AppDomain>
+    <AppDomain>https://TechSavy.Pro</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Mailbox"/>
@@ -85,9 +85,9 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/assets/icon80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Commands.Url" DefaultValue="https://sonutechsavy.github.io/OutlookReplyAllAddin/src/commands.html"/>
