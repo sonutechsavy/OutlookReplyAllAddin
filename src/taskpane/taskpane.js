@@ -31,7 +31,7 @@ function onItemSend(eventArgs) {
     // Check if there are multiple recipients in the To or CC fields
     if (item.to.length > 1 || item.cc.length > 0) {
       let message = "You are replying to all. Do you want to proceed?";
-      Office.context.ui.displayDialogAsync('https://your-addin-url/dialog.html', { height: 30, width: 20 }, function (asyncResult) {
+      Office.context.ui.displayDialogAsync('https://sonutechsavy.github.io/OutlookReplyAllAddin/src/dialog.html', { height: 30, width: 20 }, function (asyncResult) {
         let dialog = asyncResult.value;
         dialog.addEventHandler(Office.EventType.DialogMessageReceived, messageHandler);
       });
