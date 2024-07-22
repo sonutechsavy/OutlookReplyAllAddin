@@ -4,17 +4,20 @@ Office.onReady((info) => {
     }
   });
   
-  function showReplyAllWarning(event) {
+  async function onMessageSendHandler(event) {
     const item = Office.context.mailbox.item;
     if (item.itemType === Office.MailboxEnums.ItemType.Message) {
-      if (item.toRecipients.length > 1) {
-        Office.context.mailbox.displayNewMessageForm({
-          toRecipients: [],
-          subject: "Warning: Reply All",
-          body: "Are you sure you want to reply all?"
-        });
+      const subject = item.subject;
+      if (subject.startsWith('RE:') || subject.startsWith('Re:')) {
+        if (item.toRecipients.length > 1 || item.ccRecipients.length > 1 || item.bccRecipients.length > 1) {
+          const userResponse = confirm("Are you sure you want to reply all?");
+          if (!userResponse) {
+            event.completed({ allowEvent: false });
+            return;
+          }
+        }
       }
     }
-    event.completed();
+    event.completed({ allowEvent: true });
   }
   
